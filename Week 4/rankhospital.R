@@ -17,6 +17,7 @@ rankhospital<-function(state,outcome,num='best'){
   if(!input_outcome %in% c('heart attack','heart failure','pneumonia')){
     stop('Invalid Outcome')
   }
+  if( num != "best" && num != "worst" && num%%1 != 0 ) stop("invalid num")
   
   outcome_data<-data[c('name','state',input_outcome)]
   outcome_data<-outcome_data[outcome_data$state==input_state & outcome_data[input_outcome]!='Not Available',]
